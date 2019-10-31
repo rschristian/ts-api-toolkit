@@ -1,0 +1,8 @@
+# KDE directory preferences
+.directory
+
+# Dependency directories
+node_modules/
+
+# Ignore IDE files
+.idea/
