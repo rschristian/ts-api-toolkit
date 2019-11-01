@@ -24,41 +24,41 @@ Node/NPM
 This package has two class instance exports: `apiService` and `jwtService`.
 
 - ApiService
-    - changeApiUrl(newUrl: string): void
+    - `changeApiUrl(newUrl: string): void`
         - Changes the base url. Default is set to '/api/v1', and assumes a proxy is set to figure out the host. Use a partial route like '/api' if you're using a proxy, otherwise, use this to set a full route like 'http://example.com/api'.
         
-    - changeAuthSchema(newSchema: string): void
+    - `changeAuthSchema(newSchema: string): void`
         - Changes the schema used in the authorization header. Default is set to 'Bearer'.
         
-    - query(resource: string, params: any): Promise<any>
-        - GET request to resource with parameters.
+    - `query(resource: string, params: any): Promise<any>`
+        - GET request with parameters.
         
-    - get(resource: string, slug = ''): Promise<any>
+    - `get(resource: string, slug = ''): Promise<any>`
         - GET request without parameters. Optional slug.
         
-    - post(resource: string, params: any): Promise<any>
+    - `post(resource: string, params: any): Promise<any>`
         - POST request.
         
-    - update(resource: string, slug: string, params: any): Promise<any>
-        - PUT request to resource with a non-optional slug.
+    - `update(resource: string, slug: string, params: any): Promise<any>`
+        - PUT request with a non-optional slug.
         
-    - put(resource: string, params: any): Promise<any>
+    - `put(resource: string, params: any): Promise<any>`
         - PUT request.
         
-    - delete(resource: string): Promise<any>
+    - `delete(resource: string): Promise<any>`
         - DELETE request.
         
     All requests use the Authorization header to send the current token in localStorage, regardless of whether or not it is null.
 
 - JwtService
-    - updateTokenKey(tokenKey: string): void
+    - `updateTokenKey(tokenKey: string): void`
         - Changes the key used to identify the token within localStorage. Default set to 'jwt'.
         
-    - getToken(): string
+    - `getToken(): string`
         - Returns the current token.
         
-    - saveToken(token: string): void
+    - `saveToken(token: string): void`
         - Save a token into localStorage, overwriting the value that is there, if a value does exist.
         
-    - destroyToken(): void
+    - `destroyToken(): void`
         - Removes the current token in localStorage.
