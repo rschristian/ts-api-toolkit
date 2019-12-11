@@ -26,40 +26,34 @@ class ApiService {
         this.authSchema = newSchema;
     }
 
-    public async query(resource: string, params: any): Promise<any> {
+    public async query(resource: string, params: { params: object }): Promise<any> {
         this.updateHeader();
-        return await axios.get(resource, params).catch((error: any) => {
-            throw new Error(`[RWV] ApiService ${error}`);
-        });
+        return await axios.get(resource, params);
     };
 
     public async get(resource: string, slug = ''): Promise<any> {
         this.updateHeader();
-        return await axios.get(`${resource}/${slug}`).catch((error: any) => {
-            throw new Error(`[RWV] ApiService ${error}`);
-        });
+        return await axios.get(`${resource}/${slug}`);
     };
 
-    public async post(resource: string, params: any): Promise<any> {
+    public async post(resource: string, params: object): Promise<any> {
         this.updateHeader();
         return await axios.post(`${resource}`, params);
     };
 
-    public async update(resource: string, slug: string, params: any): Promise<any> {
+    public async update(resource: string, slug: string, params: object): Promise<any> {
         this.updateHeader();
         return await axios.put(`${resource}/${slug}`, params);
     };
 
-    public async put(resource: string, params: any): Promise<any> {
+    public async put(resource: string, params: object): Promise<any> {
         this.updateHeader();
         return await axios.put(`${resource}`, params);
     };
 
     public async delete(resource: string): Promise<any> {
         this.updateHeader();
-        return await axios.delete(resource).catch((error: any) => {
-            throw new Error(`[RWV] ApiService ${error}`);
-        });
+        return await axios.delete(resource);
     };
 }
 
