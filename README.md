@@ -30,19 +30,19 @@ This package has two class instance exports: `apiService` and `jwtService`.
     - `changeAuthSchema(newSchema: string): void`
         - Changes the schema used in the authorization header. Default is set to 'Bearer'.
         
-    - `query(resource: string, params: any): Promise<any>`
+    - `query(resource: string, params: { params: object }): Promise<any>`
         - GET request with parameters.
         
     - `get(resource: string, slug = ''): Promise<any>`
         - GET request without parameters. Optional slug.
         
-    - `post(resource: string, params: any): Promise<any>`
+    - `post(resource: string, params: object): Promise<any>`
         - POST request.
         
-    - `update(resource: string, slug: string, params: any): Promise<any>`
+    - `update(resource: string, slug: string, params: object): Promise<any>`
         - PUT request with a non-optional slug.
         
-    - `put(resource: string, params: any): Promise<any>`
+    - `put(resource: string, params: object): Promise<any>`
         - PUT request.
         
     - `delete(resource: string): Promise<any>`
