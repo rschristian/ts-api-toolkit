@@ -6,3 +6,6 @@ node_modules/
 
 # Ignore IDE files
 .idea/
+
+# Ignore built files
+dist/
