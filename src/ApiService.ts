@@ -8,24 +8,24 @@ export class ApiService {
 
     private updateUrl(): void {
         axios.defaults.baseURL = this.apiUrl;
-    }
+    };
 
     private updateHeader(): void {
         axios.defaults.headers.common.Authorization = `${this.authSchema} ${this.jwtService.getToken()}`;
-    }
+    };
 
     constructor() {
         this.updateUrl();
-    }
+    };
 
     public changeApiUrl(newUrl: string): void {
         this.apiUrl = newUrl;
         this.updateUrl();
-    }
+    };
 
     public changeAuthSchema(newSchema: string): void {
         this.authSchema = newSchema;
-    }
+    };
 
     public async query(resource: string, params: { params: object }): Promise<any> {
         this.updateHeader();
