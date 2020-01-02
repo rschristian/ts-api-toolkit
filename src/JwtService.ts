@@ -14,6 +14,6 @@ export class JwtService {
     };
 
     public destroyToken(): void {
-        window.localStorage.removeItem(this.tokenKey)
+        window.localStorage.removeItem(this.tokenKey);
     };
 }

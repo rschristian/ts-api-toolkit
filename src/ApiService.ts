@@ -20,7 +20,7 @@ export class ApiService {
 
     public changeApiUrl(newUrl: string): void {
         this.apiUrl = newUrl;
-        this.updateUrl()
+        this.updateUrl();
     }
 
     public changeAuthSchema(newSchema: string): void {
