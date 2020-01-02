@@ -3,7 +3,7 @@ export class JwtService {
 
     public updateTokenKey(tokenKey: string): void {
         this.tokenKey = tokenKey;
-    }
+    };
 
     public getToken(): string | null {
         return window.localStorage.getItem(this.tokenKey);
