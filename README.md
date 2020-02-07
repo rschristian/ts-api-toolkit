@@ -21,7 +21,7 @@ Node/NPM
 
 ### Running
 
-This package has two class instance exports: `apiService` and `jwtService`.
+This package has two class instance exports: `apiService` and `authStorageService`.
 
 - ApiService
     - `changeApiUrl(newUrl: string): void`
@@ -50,7 +50,7 @@ This package has two class instance exports: `apiService` and `jwtService`.
         
     All requests use the Authorization header to send the current token in localStorage, regardless of whether or not it is null.
 
-- JwtService
+- AuthStorageService
     - `updateTokenKey(tokenKey: string): void`
         - Changes the key used to identify the token within localStorage. Default set to 'jwt'.
         

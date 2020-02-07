@@ -1,17 +1,17 @@
 import axios from 'axios';
-import {JwtService} from './JwtService';
+import { AuthStorageService } from './AuthStorageService';
 
 export class ApiService {
     private apiUrl = '/api/v1';
     private authSchema = 'Bearer';
-    private jwtService = new JwtService();
+    private authStorageService = new AuthStorageService();
 
     private updateUrl(): void {
         axios.defaults.baseURL = this.apiUrl;
     };
 
     private updateHeader(): void {
-        axios.defaults.headers.common.Authorization = `${this.authSchema} ${this.jwtService.getToken()}`;
+        axios.defaults.headers.common.Authorization = `${this.authSchema} ${this.authStorageService.getToken()}`;
     };
 
     constructor() {

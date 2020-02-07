@@ -1,4 +1,4 @@
-export class JwtService {
+export class AuthStorageService {
     private tokenKey = 'jwt';
 
     public updateTokenKey(tokenKey: string): void {
