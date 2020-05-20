@@ -34,7 +34,7 @@ export class ApiService {
 
     public async get(resource: string, slug = ''): Promise<any> {
         this.updateHeader();
-        return await axios.get(`${resource}/${slug}`);
+        return await (slug) ? axios.get(`${resource}/${slug}`) : axios.get(`${resource}`);
     };
 
     public async post(resource: string, params: object): Promise<any> {
@@ -44,7 +44,7 @@ export class ApiService {
 
     public async update(resource: string, slug: string, params: object): Promise<any> {
         this.updateHeader();
-        return await axios.put(`${resource}/${slug}`, params);
+        return await (slug) ? axios.put(`${resource}/${slug}`, params) : axios.put(`${resource}`, params);
     };
 
     public async put(resource: string, params: object): Promise<any> {
