@@ -1,8 +1,10 @@
 # ts-api-toolkit
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-#<p style="text-align: center">
-![Code Example](./media/carbon.png)
+<p align="center">
+
+![Code Example](https://github.com/ryanchristian4427/ts-api-toolkit/blob/master/media/carbon.svg?raw=true)
+
 </p>
 
 A simple wrapper around Axios in combination with Json Web Token Handling to easily communicate with an API, with or without authorization.
