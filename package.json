@@ -9,7 +9,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint \"src/**/*.ts\""
+    "lint": "eslint 'src/**/*.ts'"
   },
   "keywords": [
     "axios",
