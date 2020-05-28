@@ -27,7 +27,7 @@ export class ApiService {
         this.authSchema = newSchema;
     };
 
-    public async query(resource: string, params: { params: object }): Promise<any> {
+    public async query(resource: string, params: { params: Record<string, unknown> }): Promise<any> {
         this.updateHeader();
         return await axios.get(resource, params);
     };
@@ -37,17 +37,17 @@ export class ApiService {
         return await (slug) ? axios.get(`${resource}/${slug}`) : axios.get(`${resource}`);
     };
 
-    public async post(resource: string, params: object): Promise<any> {
+    public async post(resource: string, params: Record<string, unknown>): Promise<any> {
         this.updateHeader();
         return await axios.post(`${resource}`, params);
     };
 
-    public async update(resource: string, slug: string, params: object): Promise<any> {
+    public async update(resource: string, slug: string, params: Record<string, unknown>): Promise<any> {
         this.updateHeader();
         return await (slug) ? axios.put(`${resource}/${slug}`, params) : axios.put(`${resource}`, params);
     };
 
-    public async put(resource: string, params: object): Promise<any> {
+    public async put(resource: string, params: Record<string, unknown>): Promise<any> {
         this.updateHeader();
         return await axios.put(`${resource}`, params);
     };

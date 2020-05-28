@@ -8,10 +8,11 @@ module.exports =  {
     sourceType:  'module',
   },
   rules:  {
-      "quotes": "off",
-      "@typescript-eslint/quotes": ["warn", "single"],
-      "@typescript-eslint/no-use-before-define": ["error", { "classes": false }],
-      "arrow-parens": "warn"
+      'quotes': 'off',
+      '@typescript-eslint/quotes': ['warn', 'single'],
+      '@typescript-eslint/no-extra-semi': ['off'],
+      '@typescript-eslint/no-use-before-define': ['error', { 'classes': false }],
+      'arrow-parens': 'warn'
   },
 };
 
