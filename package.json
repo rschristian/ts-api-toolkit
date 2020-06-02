@@ -12,9 +12,12 @@
     "lint": "eslint 'src/**/*.ts'"
   },
   "keywords": [
-    "axios",
+    "api",
     "jwt",
-    "auth token"
+    "fetch",
+    "axios",
+    "http",
+    "request"
   ],
   "dependencies": {
     "axios": "^0.19.2"
