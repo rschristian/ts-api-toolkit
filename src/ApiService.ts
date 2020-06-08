@@ -12,6 +12,7 @@ export class ApiService {
 
     private updateHeader(): void {
         axios.defaults.headers.common.Authorization = `${this.authSchema} ${this.authStorageService.getToken()}`;
+        axios.defaults.headers.common.ContentType = 'application/json';
     };
 
     constructor() {
