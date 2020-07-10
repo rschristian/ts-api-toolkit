@@ -2,15 +2,15 @@
   "name": "ts-api-toolkit",
   "author": "Ryan Christian",
   "version": "2.0.4",
-  "description": "A simple wrapper around Axios in combination with JWT/Auth Token Handling to easily communicate with an API, with or without authorization",
-  "license": "MIT",
-  "repository": "https://github.com/RyanChristian4427/ts-api-toolkit",
+  "source": "src/index.ts",
   "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "umd:main": "dist/index.umd.js",
   "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc",
-    "lint": "eslint 'src/**/*.ts'"
-  },
+  "license": "MIT",
+  "description": "A simple wrapper around Axios in combination with JWT/Auth Token Handling to easily communicate with an API, with or without authorization",
+  "homepage": "https://github.com/RyanChristian4427/ts-api-toolkit",
+  "repository": "https://github.com/RyanChristian4427/ts-api-toolkit",
   "keywords": [
     "api",
     "jwt",
@@ -19,6 +19,11 @@
     "http",
     "request"
   ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "microbundle",
+    "lint": "eslint 'src/**/*.ts'"
+  },
   "dependencies": {
     "axios": "^0.19.2"
   },
@@ -26,6 +31,7 @@
     "@typescript-eslint/eslint-plugin": "^3.0.2",
     "@typescript-eslint/parser": "^3.0.2",
     "eslint": "^7.1.0",
+    "microbundle": "^0.12.2",
     "typescript": "^3.9.3"
   }
 }
