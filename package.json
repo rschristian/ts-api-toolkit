@@ -1,7 +1,7 @@
 {
   "name": "ts-api-toolkit",
   "author": "Ryan Christian",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
