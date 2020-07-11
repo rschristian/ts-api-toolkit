@@ -22,16 +22,19 @@
   "sideEffects": false,
   "scripts": {
     "build": "microbundle",
-    "lint": "eslint 'src/**/*.ts'"
+    "lint": "eslint 'src/**/*.ts' --fix && prettier '*.json' --write"
   },
   "dependencies": {
     "axios": "^0.19.2"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.0.2",
-    "@typescript-eslint/parser": "^3.0.2",
-    "eslint": "^7.1.0",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.6.0",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "microbundle": "^0.12.2",
+    "prettier": "^2.0.5",
     "typescript": "^3.9.3"
   }
 }
