@@ -1,60 +1,68 @@
-import axios from 'axios';
+import redaxios from '@ryanchristian4427/redaxios';
+
 import { AuthStorageService } from './AuthStorageService';
 
 export class ApiService {
-    private apiUrl = '/api/v1';
+    private baseUrl = '/api/v1';
     private authSchema = 'Bearer';
-    private authStorageService = new AuthStorageService();
+    private authStorageService: AuthStorageService;
 
-    private updateUrl(): void {
-        axios.defaults.baseURL = this.apiUrl;
-    };
+    constructor(authStorageService: AuthStorageService) {
+        this.authStorageService = authStorageService;
+    }
 
-    private updateHeader(): void {
-        axios.defaults.headers.common.Authorization = `${this.authSchema} ${this.authStorageService.getToken()}`;
-        axios.defaults.headers.common.ContentType = 'application/json';
-    };
-
-    constructor() {
-        this.updateUrl();
-    };
+    private headers(): { [name: string]: string } {
+        return {
+            Authorization: `${this.authSchema} ${this.authStorageService.getToken()}`,
+        };
+    }
 
     public changeApiUrl(newUrl: string): void {
-        this.apiUrl = newUrl;
-        this.updateUrl();
-    };
+        this.baseUrl = newUrl;
+    }
 
     public changeAuthSchema(newSchema: string): void {
         this.authSchema = newSchema;
-    };
+    }
 
-    public async query(resource: string, params: { params: Record<string, unknown> }): Promise<any> {
-        this.updateHeader();
-        return await axios.get(resource, params);
-    };
+    public async query(resource: string, params: Record<string, unknown>): Promise<any> {
+        return await redaxios.get(
+            `${this.baseUrl}/${resource}/${Object.keys(params)
+                .map((key) => `${key}=${params[key]}`)
+                .join('&')}`,
+            {
+                headers: this.headers(),
+            },
+        );
+    }
 
-    public async get(resource: string, slug = ''): Promise<any> {
-        this.updateHeader();
-        return await (slug) ? axios.get(`${resource}/${slug}`) : axios.get(`${resource}`);
-    };
+    public async get(resource: string): Promise<any> {
+        return await redaxios.get(`${this.baseUrl}/${resource}`, {
+            headers: this.headers(),
+        });
+    }
 
     public async post(resource: string, params: Record<string, unknown>): Promise<any> {
-        this.updateHeader();
-        return await axios.post(`${resource}`, params);
-    };
-
-    public async update(resource: string, slug: string, params: Record<string, unknown>): Promise<any> {
-        this.updateHeader();
-        return await (slug) ? axios.put(`${resource}/${slug}`, params) : axios.put(`${resource}`, params);
-    };
+        return await redaxios.post(`${this.baseUrl}/${resource}`, params, {
+            headers: this.headers(),
+        });
+    }
 
     public async put(resource: string, params: Record<string, unknown>): Promise<any> {
-        this.updateHeader();
-        return await axios.put(`${resource}`, params);
-    };
+        return await redaxios.put(`${this.baseUrl}/${resource}`, params, {
+            headers: this.headers(),
+        });
+    }
+
+    public async patch(resource: string, params: Record<string, unknown>): Promise<any> {
+        return await redaxios.patch(`${this.baseUrl}/${resource}`, params, {
+            headers: this.headers(),
+        });
+    }
 
     public async delete(resource: string): Promise<any> {
-        this.updateHeader();
-        return await axios.delete(resource);
-    };
+        return await redaxios.delete(`${this.baseUrl}/${resource}`, {
+            headers: this.headers(),
+        });
+    }
 }
