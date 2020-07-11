@@ -17,12 +17,12 @@ export class ApiService {
         };
     }
 
-    public changeBaseUrl(newUrl: string): void {
-        this.baseUrl = newUrl;
+    public changeBaseUrl(baseUrl: string): void {
+        this.baseUrl = baseUrl;
     }
 
-    public changeAuthSchema(newSchema: string): void {
-        this.authSchema = newSchema;
+    public changeAuthSchema(authSchema: string): void {
+        this.authSchema = authSchema;
     }
 
     public async query(resource: string, params: Record<string, unknown>): Promise<any> {
