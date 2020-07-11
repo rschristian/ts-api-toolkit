@@ -12,8 +12,8 @@ export class AuthStorageService {
         this.changeTokenKey(tokenKey);
     }
 
-    public getToken(): string | null {
-        return window.localStorage.getItem(this.tokenKey);
+    public getToken(): string {
+        return window.localStorage.getItem(this.tokenKey) || '';
     }
 
     public saveToken(token: string): void {
