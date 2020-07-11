@@ -21,6 +21,13 @@ export class ApiService {
         this.baseUrl = baseUrl;
     }
 
+    /**
+     * @deprecated Since v2.0.7. Will be removed in v3.0.. Use `changeBaseUrl` instead.
+     */
+    public changeApiUrl(baseUrl: string): void {
+        this.changeBaseUrl(baseUrl);
+    }
+
     public changeAuthSchema(authSchema: string): void {
         this.authSchema = authSchema;
     }
