@@ -17,7 +17,7 @@ export class ApiService {
         };
     }
 
-    public changeApiUrl(newUrl: string): void {
+    public changeBaseUrl(newUrl: string): void {
         this.baseUrl = newUrl;
     }
 
