@@ -1,7 +1,7 @@
 export class AuthStorageService {
     private tokenKey = 'jwt';
 
-    public updateTokenKey(tokenKey: string): void {
+    public changeTokenKey(tokenKey: string): void {
         this.tokenKey = tokenKey;
     }
 
