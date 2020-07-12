@@ -9,3 +9,6 @@ node_modules/
 
 # Ignore built files
 dist/
+
+# Ignore code coverage reports from test suite
+coverage/

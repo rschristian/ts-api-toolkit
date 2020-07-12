@@ -1,9 +1,10 @@
 module.exports = {
     env: {
         browser: true,
-        amd: true,
-        node: true,
+        es6: true,
+        jasmine: true,
         jest: true,
+        node: true,
     },
     plugins: ['@typescript-eslint'],
     extends: [
