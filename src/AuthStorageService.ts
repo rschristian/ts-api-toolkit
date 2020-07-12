@@ -6,7 +6,7 @@ export class AuthStorageService {
     }
 
     /**
-     * @deprecated Since v2.0.7. Will be removed in v3.0.. Use `changeTokenKey` instead.
+     * @deprecated Deprecated since v2.0.7. Will be removed in v3.0.0. Use `changeTokenKey()` instead.
      */
     public updateTokenKey(tokenKey: string): void {
         this.changeTokenKey(tokenKey);
