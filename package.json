@@ -24,7 +24,7 @@
   "scripts": {
     "build": "microbundle",
     "lint": "eslint 'src/**/*.ts' --fix && prettier '*.json' --write",
-    "test": "karmatic"
+    "test": "karmatic 'test/*.test.*'"
   },
   "dependencies": {
     "@ryanchristian4427/redaxios": "^0.2.1"
