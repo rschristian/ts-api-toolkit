@@ -34,9 +34,11 @@ export class ApiService {
 
     public async query(resource: string, params: Record<string, unknown>): Promise<any> {
         return await redaxios.get(
-            `${this.baseUrl}/${resource}?${Object.keys(params)
-                .map((key) => `${key}=${params[key]}`)
-                .join('&')}`,
+            encodeURI(
+                `${this.baseUrl}/${resource}?${Object.keys(params)
+                    .map((key) => `${key}=${params[key]}`)
+                    .join('&')}`,
+            ),
             {
                 headers: this.headers(),
             },
