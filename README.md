@@ -75,7 +75,7 @@ Provides an instance of ApiService.
     
     `{ name: 'ferret', color: 'purple' }` -> `?name=ferret&color=purple`
    
-  - #### get(resource: string): Promise<any>
+  - #### .get(resource: string): Promise<any>
     GET request
     
   - #### .post(resource: string, params: Record<string, unknown>): Promise<any>
