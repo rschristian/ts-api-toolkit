@@ -1012,11 +1012,6 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@ryanchristian4427/redaxios@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@ryanchristian4427/redaxios/-/redaxios-0.2.1.tgz#6f5736c9e39f1646df8536930bcb490c9cddfcd5"
-  integrity sha512-1B2JM+4ye3Av/DSbeTicpDr+PB35Igq9RL0I59xpUvD4boOi4M0YJMegQEi1Nh2PvAH7Ox9ZeYBqPK4xkiT8sQ==
-
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
@@ -7092,6 +7087,11 @@ readdirp@~3.4.0:
   integrity sha512-0xe001vZBnJEK+uKcj8qOhyAKPzIT+gStxWr3LCB0DwcXR5NZJ3IaC+yGnHCYzB/S7ov3m3EEbZI2zeNvX+hGQ==
   dependencies:
     picomatch "^2.2.1"
+
+redaxios@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/redaxios/-/redaxios-0.3.0.tgz#83bf141494afbe210c44f32b142b8fd73c953f02"
+  integrity sha512-9C4Wvdp/jn4wwBCGMntqu0JCAw+Kfr/uGfMR+JwC0Bg94ORTRzo2dPdHSIPxwSE9/4ORYKmOjhH28mHiuzZSJA==
 
 regenerate-unicode-properties@^8.2.0:
   version "8.2.0"

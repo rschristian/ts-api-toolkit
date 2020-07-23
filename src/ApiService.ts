@@ -1,4 +1,4 @@
-import redaxios from '@ryanchristian4427/redaxios';
+import redaxios from 'redaxios';
 
 import { AuthStorageService } from './AuthStorageService';
 

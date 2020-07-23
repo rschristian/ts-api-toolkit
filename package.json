@@ -28,7 +28,7 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@ryanchristian4427/redaxios": "^0.2.1"
+    "redaxios": "^0.3.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",
