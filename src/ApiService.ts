@@ -2,6 +2,8 @@ import redaxios from 'redaxios';
 
 import { AuthStorageService } from './AuthStorageService';
 
+type HttpMethods = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options';
+
 export class ApiService {
     private baseUrl = '/api/v1';
     private authSchema = 'Bearer';
@@ -11,7 +13,7 @@ export class ApiService {
         this.authStorageService = authStorageService;
     }
 
-    private headers(): { [name: string]: string } {
+    private headers(): Record<string, string> {
         return {
             Authorization: `${this.authSchema} ${this.authStorageService.getToken()}`,
         };
@@ -32,46 +34,23 @@ export class ApiService {
         this.authSchema = authSchema;
     }
 
-    public async query(resource: string, params: Record<string, unknown>): Promise<any> {
-        return await redaxios.get(
-            encodeURI(
-                `${this.baseUrl}/${resource}?${Object.keys(params)
-                    .map((key) => `${key}=${params[key]}`)
-                    .join('&')}`,
-            ),
-            {
-                headers: this.headers(),
-            },
-        );
-    }
+    private request = (method: HttpMethods) => {
+        return method === 'get' || method === 'delete' || method === 'options'
+            ? (resource: string, params?: Record<string, unknown>) => {
+                  return redaxios[method](`${this.baseUrl}/${resource}`, { headers: this.headers(), params });
+              }
+            : (resource: string, data?: Record<string, unknown>, params?: Record<string, unknown>) => {
+                  return redaxios[method](`${this.baseUrl}/${resource}`, data, { headers: this.headers(), params });
+              };
+    };
 
-    public async get(resource: string): Promise<any> {
-        return await redaxios.get(`${this.baseUrl}/${resource}`, {
-            headers: this.headers(),
-        });
-    }
-
-    public async post(resource: string, params: Record<string, unknown>): Promise<any> {
-        return await redaxios.post(`${this.baseUrl}/${resource}`, params, {
-            headers: this.headers(),
-        });
-    }
-
-    public async put(resource: string, params: Record<string, unknown>): Promise<any> {
-        return await redaxios.put(`${this.baseUrl}/${resource}`, params, {
-            headers: this.headers(),
-        });
-    }
-
-    public async patch(resource: string, params: Record<string, unknown>): Promise<any> {
-        return await redaxios.patch(`${this.baseUrl}/${resource}`, params, {
-            headers: this.headers(),
-        });
-    }
-
-    public async delete(resource: string): Promise<any> {
-        return await redaxios.delete(`${this.baseUrl}/${resource}`, {
-            headers: this.headers(),
-        });
-    }
+    public get = this.request('get');
+    /**
+     * @deprecated Deprecated since v2.0.11. Will be removed in v3.0.0. Use `get()` instead.
+     */
+    public query = this.request('get');
+    public post = this.request('post');
+    public put = this.request('put');
+    public patch = this.request('patch');
+    public delete = this.request('delete');
 }

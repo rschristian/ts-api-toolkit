@@ -48,6 +48,9 @@ describe('API Service Tests', () => {
             .createSpy('fetch')
             .and.returnValue(Promise.resolve({ ok: true, status: 200, text: () => Promise.resolve({}) }));
 
+        /**
+         * @deprecated Will be removed in v3.0.0.
+         */
         const request = apiService.query('foo', { bar: true });
         expect(window.fetch).toHaveBeenCalledWith(
             '/api/v1/foo?bar=true',
@@ -59,6 +62,18 @@ describe('API Service Tests', () => {
             }),
         );
         expect((await request).status).toEqual(200);
+
+        const request2 = apiService.get('foo', { foo: 'bar' });
+        expect(window.fetch).toHaveBeenCalledWith(
+            '/api/v1/foo?foo=bar',
+            jasmine.objectContaining({
+                method: 'get',
+                headers: {
+                    authorization: 'Bearer ',
+                },
+            }),
+        );
+        expect((await request2).status).toEqual(200);
     });
 
     it('should issue GET requests', async () => {
