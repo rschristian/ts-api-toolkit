@@ -69,28 +69,30 @@ Provides an instance of ApiService.
     Changes the scheme used in the Authorization header. 
     
     Use the `authSchema` parameter to describe the prefix to the token. The default is set to `Bearer`, so, unedited, all API requests will come with the following header: `Authorization: 'Bearer <auth-token>'`
-  
-  - #### .query(resource: string, params: Record<string, unknown>): Promise<any>
-    GET request with query parameters. Params provided will automatically be converted into a proper query string.
-    
-    `{ name: 'ferret', color: 'purple' }` -> `?name=ferret&color=purple`
    
-  - #### .get(resource: string): Promise<any>
+  - #### .get(resource: string, params?: Record<string, unknown>): Promise<any>
     GET request
     
-  - #### .post(resource: string, params: Record<string, unknown>): Promise<any>
+  - #### .post(resource: string, data: Record<string, unknown>, params?: Record<string, unknown>): Promise<any>
     POST request
     
-  - #### .put(resource: string, params: Record<string, unknown>): Promise<any>
+  - #### .put(resource: string, data: Record<string, unknown>, params?: Record<string, unknown>): Promise<any>
     PUT request
     
-  - #### .patch(resource: string, params: Record<string, unknown>): Promise<any>
+  - #### .patch(resource: string, data: Record<string, unknown>, params?: Record<string, unknown>): Promise<any>
     PATCH request
 
-  - #### .delete(resource: string, params: Record<string, unknown>): Promise<any>
+  - #### .delete(resource: string, params: Record<string, unknown>, params?: Record<string, unknown>): Promise<any>
     DELETE request
+    
+  - #### .options(resource: string, params?: Record<string, unknown>): Promise<any>
+    OPTIONS request
 
   All requests use the Authorization header to send the current token in localStorage, regardless of whether it is empty.
+  
+  Query parameters will all be properly serialized, no need to provide anything beyond an object.
+  
+    `{ name: 'ferret', color: 'purple' }` -> `?name=ferret&color=purple`
 
 ## License
 
