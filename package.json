@@ -9,7 +9,7 @@
   "umd:main": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
-  "description": "A simple wrapper around Axios in combination with JWT/Auth Token Handling to easily communicate with an API, with or without authorization",
+  "description": "A simple wrapper around Redaxios in combination with JWT/Auth Token Handling to easily communicate with an API, with or without authorization",
   "homepage": "https://github.com/RyanChristian4427/ts-api-toolkit",
   "repository": "https://github.com/RyanChristian4427/ts-api-toolkit",
   "keywords": [
@@ -25,7 +25,7 @@
   "scripts": {
     "build": "microbundle",
     "lint": "eslint 'src/**/*.ts' --fix && prettier '*.json' --write",
-    "test": "karmatic 'test/*.test.*'",
+    "test": "karmatic 'test/*.test.ts'",
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
