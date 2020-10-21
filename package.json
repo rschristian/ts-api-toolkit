@@ -3,11 +3,19 @@
   "author": "Ryan Christian",
   "version": "2.0.11",
   "source": "src/index.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.module.js",
-  "esmodule": "dist/index.modern.js",
-  "umd:main": "dist/index.umd.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/apiToolkit.js",
+  "module": "dist/apiToolkit.module.js",
+  "esmodule": "dist/apiToolkit.modern.js",
+  "umd:main": "dist/apiToolkit.umd.js",
+  "types": "dist/apiToolkit.d.ts",
+  "exports": {
+    ".": {
+      "browser": "./dist/apiToolkit.module.js",
+      "umd": "./dist/apiToolkit.umd.js",
+      "import": "./dist/apiToolkit.mjs",
+      "require": "./dist/apiToolkit.js"
+    }
+  },
   "license": "MIT",
   "description": "A simple wrapper around Redaxios in combination with JWT/Auth Token Handling to easily communicate with an API, with or without authorization",
   "homepage": "https://github.com/RyanChristian4427/ts-api-toolkit",
@@ -27,6 +35,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "microbundle",
+    "postbuild": "node ./node-13-exports.js",
     "lint": "eslint 'src/**/*.ts' --fix && prettier '*.json' --write",
     "test": "karmatic 'test/*.test.ts'",
     "prepublishOnly": "yarn build"
