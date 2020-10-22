@@ -12,7 +12,7 @@
     ".": {
       "browser": "./dist/apiToolkit.module.js",
       "umd": "./dist/apiToolkit.umd.js",
-      "import": "./dist/apiToolkit.mjs",
+      "import": "./dist/apiToolkit.module.js",
       "require": "./dist/apiToolkit.js"
     }
   },
@@ -35,7 +35,6 @@
   "sideEffects": false,
   "scripts": {
     "build": "microbundle",
-    "postbuild": "node ./node-13-exports.js",
     "lint": "eslint 'src/**/*.ts' --fix && prettier '*.json' --write",
     "test": "karmatic 'test/*.test.ts'",
     "prepublishOnly": "yarn build"
