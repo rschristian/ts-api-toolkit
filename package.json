@@ -7,7 +7,7 @@
   "module": "dist/apiToolkit.module.js",
   "esmodule": "dist/apiToolkit.modern.js",
   "umd:main": "dist/apiToolkit.umd.js",
-  "types": "dist/apiToolkit.d.ts",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "browser": "./dist/apiToolkit.module.js",
