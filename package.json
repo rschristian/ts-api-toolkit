@@ -5,17 +5,9 @@
   "source": "src/index.ts",
   "main": "dist/apiToolkit.js",
   "module": "dist/apiToolkit.module.js",
-  "esmodule": "dist/apiToolkit.modern.js",
   "umd:main": "dist/apiToolkit.umd.js",
   "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "browser": "./dist/apiToolkit.module.js",
-      "umd": "./dist/apiToolkit.umd.js",
-      "import": "./dist/apiToolkit.module.js",
-      "require": "./dist/apiToolkit.js"
-    }
-  },
+  "exports": "./dist/apiToolkit.modern.js",
   "license": "MIT",
   "description": "A simple wrapper around Redaxios in combination with JWT/Auth Token Handling to easily communicate with an API, with or without authorization",
   "homepage": "https://github.com/RyanChristian4427/ts-api-toolkit",
