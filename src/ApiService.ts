@@ -14,9 +14,11 @@ export class ApiService {
     }
 
     private headers(): Record<string, string> {
-        return {
-            Authorization: `${this.authSchema} ${this.authStorageService.getToken()}`,
-        };
+        return this.authStorageService.getToken()
+            ? {
+                  Authorization: `${this.authSchema} ${this.authStorageService.getToken()}`,
+              }
+            : {};
     }
 
     public changeBaseUrl(baseUrl: string): void {
