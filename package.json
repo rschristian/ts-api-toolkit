@@ -3,11 +3,9 @@
   "author": "Ryan Christian",
   "version": "2.0.15",
   "source": "src/index.ts",
-  "main": "dist/apiToolkit.js",
-  "module": "dist/apiToolkit.module.js",
-  "umd:main": "dist/apiToolkit.umd.js",
+  "type": "module",
   "types": "dist/index.d.ts",
-  "exports": "./dist/apiToolkit.modern.js",
+  "exports": "./dist/ts-api-toolkit.modern.js",
   "license": "MIT",
   "description": "A simple wrapper around Redaxios in combination with JWT/Auth Token Handling to easily communicate with an API, with or without authorization",
   "homepage": "https://github.com/RyanChristian4427/ts-api-toolkit",
@@ -26,26 +24,23 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "microbundle",
-    "lint": "eslint 'src/**/*.ts' --fix && prettier '*.json' --write",
-    "test": "karmatic 'test/*.test.ts'",
-    "prepublishOnly": "yarn build"
+    "build": "microbundle -f modern --external none",
+    "lint": "eslint '{src,tests}/**/*.ts' --fix && prettier '*.json' --write",
+    "test": "karmatic 'tests/*.test.ts'",
+    "prepublishOnly": "yarn build && node prepublish.js"
   },
   "dependencies": {
     "redaxios": "^0.4.1"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.4",
-    "@typescript-eslint/eslint-plugin": "^3.6.0",
-    "@typescript-eslint/parser": "^3.6.0",
-    "eslint": "^7.4.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.4",
+    "@types/jest": "^26.0.23",
     "karmatic": "^2.1.0",
-    "microbundle": "^0.12.4",
-    "prettier": "^2.0.5",
+    "microbundle": "^0.13.0",
+    "prettier": "^2.2.1",
+    "prettier-config-rschristian": "^0.1.0",
     "ts-loader": "^8.0.4",
-    "typescript": "^4.0.3",
+    "typescript": "^4.2.4",
     "webpack": "^4.44.2"
-  }
+  },
+  "prettier": "prettier-config-rschristian"
 }

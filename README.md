@@ -26,9 +26,9 @@ $ yarn add ts-api-toolkit
 ## Usage
 
 ```js
-import { apiService, authStorageService } from 'ts-api-toolkit';
+import apiToolkit from 'ts-api-toolkit';
 
-const { data: { user } } = await apiService.post('users/login', credentials);
+const { data: { user } } = await apiToolkit.post('users/login', credentials);
 authStorageService.saveToken(user.token);
 ```
 
