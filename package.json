@@ -5,7 +5,8 @@
   "source": "src/index.ts",
   "type": "module",
   "types": "dist/index.d.ts",
-  "exports": "./dist/ts-api-toolkit.modern.js",
+  "main": "./dist/apiToolkit.modern.js",
+  "exports": "./dist/apiToolkit.modern.js",
   "license": "MIT",
   "description": "A simple wrapper around Redaxios in combination with JWT/Auth Token Handling to easily communicate with an API, with or without authorization",
   "homepage": "https://github.com/RyanChristian4427/ts-api-toolkit",
@@ -27,7 +28,7 @@
     "build": "microbundle -f modern",
     "lint": "eslint '{src,tests}/**/*.ts' --fix && prettier '*.json' --write",
     "test": "karmatic 'tests/*.test.ts'",
-    "prepublishOnly": "yarn build && node prepublish.js"
+    "prepublishOnly": "node prepublish.js"
   },
   "dependencies": {
     "redaxios": "^0.4.1"
