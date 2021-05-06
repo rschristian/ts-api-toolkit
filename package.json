@@ -24,7 +24,7 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "microbundle -f modern --external none",
+    "build": "microbundle -f modern",
     "lint": "eslint '{src,tests}/**/*.ts' --fix && prettier '*.json' --write",
     "test": "karmatic 'tests/*.test.ts'",
     "prepublishOnly": "yarn build && node prepublish.js"
