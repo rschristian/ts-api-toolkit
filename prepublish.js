@@ -3,7 +3,8 @@
 // everything stays correct.
 
 import fs from 'fs';
+import path from 'path';
 
-const moduleType = JSON.parse(fs.readFileSync(resolve('package.json'), 'utf-8')).type;
+const moduleType = JSON.parse(fs.readFileSync(path.resolve('package.json'), 'utf-8')).type;
 
 if (!moduleType) throw('Set module type');
